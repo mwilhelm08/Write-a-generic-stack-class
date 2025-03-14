@@ -1,9 +1,11 @@
+package Stack;
+
 /**
  * Exception thrown when trying to pop or peek from an empty stack.
  */
 class StackEmptyException extends Exception {
     /**
-     * Constructor to create a StackEmptyException with a custom message.
+     * Constructor to create a Stack.StackEmptyException with a custom message.
      *
      * @param message the detail message
      */
@@ -17,7 +19,7 @@ class StackEmptyException extends Exception {
  */
 class StackFullException extends Exception {
     /**
-     * Constructor to create a StackFullException with a custom message.
+     * Constructor to create a Stack.StackFullException with a custom message.
      *
      * @param message the detail message
      */
@@ -27,7 +29,7 @@ class StackFullException extends Exception {
 }
 
 /**
- * A generic Stack class that implements the Last-In-First-Out (LIFO) principle.
+ * A generic Stack.Stack class that implements the Last-In-First-Out (LIFO) principle.
  * The stack stores elements in an array and supports basic operations such as push, pop, and peek.
  *
  * @param <T> the type of elements in this stack
@@ -57,28 +59,28 @@ public class Stack<T> {
 
     /**
      * Pushes an element onto the stack.
-     * If the stack is full, a StackFullException is thrown.
+     * If the stack is full, a Stack.StackFullException is thrown.
      *
      * @param element the element to be pushed onto the stack
      * @throws StackFullException if the stack is full
      */
     public void push(T element) throws StackFullException {
         if (top == size - 1) {
-            throw new StackFullException("Stack is full, cannot push element.");
+            throw new StackFullException("Stack.Stack is full, cannot push element.");
         }
         stackArray[++top] = element;
     }
 
     /**
      * Pops the top element from the stack and returns it.
-     * If the stack is empty, a StackEmptyException is thrown.
+     * If the stack is empty, a Stack.StackEmptyException is thrown.
      *
      * @return the top element from the stack
      * @throws StackEmptyException if the stack is empty
      */
     public T pop() throws StackEmptyException {
         if (top == -1) {
-            throw new StackEmptyException("Stack is empty, cannot pop element.");
+            throw new StackEmptyException("Stack.Stack is empty, cannot pop element.");
         }
         T element = (T) stackArray[top]; // typecast to generic type
         stackArray[top--] = null; // clear the reference
@@ -87,27 +89,27 @@ public class Stack<T> {
 
     /**
      * Peeks at the top element of the stack without removing it.
-     * If the stack is empty, a StackEmptyException is thrown.
+     * If the stack is empty, a Stack.StackEmptyException is thrown.
      *
      * @return the top element of the stack
      * @throws StackEmptyException if the stack is empty
      */
     public T peek() throws StackEmptyException {
         if (top == -1) {
-            throw new StackEmptyException("Stack is empty, cannot peek element.");
+            throw new StackEmptyException("Stack.Stack is empty, cannot peek element.");
         }
         return (T) stackArray[top]; // return the top element without removing it
     }
 
     /**
      * Returns a string representation of the stack with elements separated by a semicolon (;).
-     * If the stack is empty, it returns "Stack is empty".
+     * If the stack is empty, it returns "Stack.Stack is empty".
      *
      * @return a string representation of the stack
      */
     public String list() {
         if (top == -1) {
-            return "Stack is empty";
+            return "Stack.Stack is empty";
         }
         StringBuilder stackContents = new StringBuilder();
         for (int i = 0; i <= top; i++) {
